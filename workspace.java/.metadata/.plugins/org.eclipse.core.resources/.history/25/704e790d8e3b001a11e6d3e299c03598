@@ -1,0 +1,29 @@
+package br.org.generation.webmotors.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import br.org.generation.webmotors.model.Cliente;
+
+@RestController
+public class ClienteController {
+	
+	
+	@GetMapping("/cliente/teste")// essa anotação vincula a funcionalidade a URL. retornando um JSON.
+	public Cliente testeVeiculo() {
+		Cliente c = new Cliente();
+		c.setId         (000001);
+		c.setEmail      ("luis.witts@outlook.com");
+		c.setCpf        ("30218441855");
+		c.setTelefone   ("11956300083");
+		c.setDataNa     ("22/11/1999");
+		
+		return c;
+		
+		
+		
+		
+	}
+	
+	
+	
+}

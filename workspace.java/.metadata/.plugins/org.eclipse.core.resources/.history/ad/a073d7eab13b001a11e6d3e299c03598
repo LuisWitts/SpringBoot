@@ -1,0 +1,61 @@
+package br.org.generation.webmotors.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.org.generation.webmotors.bd.BDCliente;
+import br.org.generation.webmotors.bd.BDVeiculo;
+import br.org.generation.webmotors.model.Veiculo;
+
+@RestController
+public class VeiculoController {
+	
+	// "criei" meu banco de dados
+	private BDVeiculo bd = new BDVeiculo();
+	
+	@PostMapping("/Veiculo/novo")
+	public ResponseEntity<Veiculo> novoCliente(@RequestBody Veiculo veiculo) {
+		bd.gravar(veiculo);
+		return ResponseEntity.ok(veiculo);
+	}
+	
+	@GetMapping("/veiculo/{id}")
+	public ResponseEntity<Veiculo> getCliente(@PathVariable int id){
+		Veiculo vei = bd.buscar(id);
+		if (vei != null) {  // encontrei um Veiculo com o ID especificado
+			return ResponseEntity.ok(vei);
+		}
+		else {
+			return ResponseEntity.notFound().build();
+		}		
+	}
+	
+	@GetMapping("/Veiculo/todos")
+	public ResponseEntity<ArrayList<Veiculo>> getTodos(){
+		return ResponseEntity.ok(bd.buscarTodos());
+	}
+	
+	@PutMapping("/Veiculo")
+	public ResponseEntity<String> alteraCliente(@RequestBody Veiculo veiculo){
+		bd.atualizar(veiculo);
+		return ResponseEntity.ok("Success");
+	}
+	
+	@DeleteMapping("/Veiculo/{id}")
+	public ResponseEntity<String> removeVeiculo(@PathVariable int id){
+		if (bd.apagar(id)) {
+			return ResponseEntity.ok("DELETED");
+		}
+		else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+}

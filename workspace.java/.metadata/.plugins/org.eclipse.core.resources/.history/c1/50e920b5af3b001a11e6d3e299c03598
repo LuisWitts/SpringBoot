@@ -1,0 +1,42 @@
+package br.org.generation.webmotors.bd;
+
+import java.util.ArrayList;
+
+import br.org.generation.webmotors.model.Cliente;
+
+public class BDCliente {
+
+	private ArrayList<Cliente> lista;
+
+	public BDCliente() {
+		lista = new ArrayList<Cliente>();
+	}
+
+	public void gravar(Cliente c) {
+		this.lista.add(c);
+	}
+
+	public Cliente buscar(int id) {
+		Cliente c = null;
+		for (Cliente cli : lista) {
+			if (cli.getId() == id) {
+				c = cli;
+				break;
+			}
+		}
+		return c   ;
+	}
+
+	public void apagar(Cliente c) {
+
+	}
+
+	public void atualizar(Cliente c) {
+
+	}
+
+	public ArrayList<Cliente> buscarTodos() {
+		return lista;
+	}
+
+}

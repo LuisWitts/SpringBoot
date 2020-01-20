@@ -1,0 +1,22 @@
+package br.org.generation.webmotors.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import br.org.generation.webmotors.model.Cliente;
+
+@RestController
+public class ClienteController {
+	
+	public void novoCliente(Cliente cliente) {
+		public void novoCliente(Cliente cliente) {
+			
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
+}

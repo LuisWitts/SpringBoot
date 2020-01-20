@@ -1,0 +1,37 @@
+package br.org.generation.webmotors.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import br.org.generation.webmotors.model.Veiculo;
+
+@RestController
+public class VeiculoController {
+	
+	
+	@GetMapping("/veiculo/teste")// essa anotação vincula a funcionalidade a URL. retornando um JSON.
+	public Veiculo testeVeiculo() {
+		Veiculo v = new Veiculo();
+		v.setAno      (1233);
+		v.setPreco    (33000);
+		v.setId       (0011);
+		v.setCor      ("azul");
+		v.setMarca    ("audi");
+		v.setModelo   ("audia3");
+		v.setTipo     ("sedan");
+		v.setDetalhes ("veiculo impecavel. "
+				+"Motor Porsche cayene, "
+				+ "Banco de Couro branco "
+				+ "Sua mãe é minha"
+
+				
+				);
+		return v;
+		
+		
+		
+		
+	}
+	
+	
+	
+}
