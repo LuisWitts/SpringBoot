@@ -32,10 +32,6 @@ public class Produto {
 	public void setPreco(float preco) {
 		this.preco = preco;
 	}
-	public void setPreco(String string) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	
 	

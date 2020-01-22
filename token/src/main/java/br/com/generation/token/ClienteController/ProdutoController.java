@@ -24,7 +24,7 @@ public class ProdutoController {
 				a.setCodigo((i+1)*100);
 				a.setTitulo("Titulo do Produto = "+(i+1));
 				a.setDetalhes("Detalhes ="+(i+1));
-				a.setPreco("Preço = "+(i+1));
+				a.setPreco(1300.00f);
 				
 				lista.add(a);
 			}
